@@ -1,4 +1,5 @@
 class Vacancy:
+    __slots__ = ['__title', '__link', '__description', '__salary']
 
     def __init__(self, title, link, description, salary):
         self.title = title
@@ -7,7 +8,7 @@ class Vacancy:
         self.salary = salary
 
     def __repr__(self):
-        return f'{self.__class__.__name__}({self.title, self.link, self.description, self.salary})'
+        return f'{self.__class__.__name__}({self.__slots__})'
 
     def __str__(self):
         return self.title
@@ -30,7 +31,8 @@ class Vacancy:
 
     @title.setter
     def title(self, value):
-        self.__title = value
+        if isinstance(value, str):
+            self.__title = value
 
     @property
     def link(self):
@@ -38,7 +40,8 @@ class Vacancy:
 
     @link.setter
     def link(self, value):
-        self.__link = value
+        if isinstance(value, str):
+            self.__link = value
 
     @property
     def description(self):
@@ -46,7 +49,8 @@ class Vacancy:
 
     @description.setter
     def description(self, value):
-        self.__description = value
+        if isinstance(value, str):
+            self.__description = value
 
     @property
     def salary(self):
@@ -54,8 +58,7 @@ class Vacancy:
 
     @salary.setter
     def salary(self, value):
-        if isinstance(value, (int, type(None))):
-            self.__salary = value
+        self.__salary = value
 
 
 class HHVacancy(Vacancy):

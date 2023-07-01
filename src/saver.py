@@ -46,14 +46,14 @@ class JSONSaver(Saver):
         self.__data_file = new_data
         self._make_file(self.__data_file)
 
-    def add_vacancy(self, data):
+    def add_vacancy(self, data=None):
         file_data = self._open_file(self.__data_file)
         file_data.append(data)
 
         with open(self.__data_file, 'w', encoding='utf-8') as file:
             json.dump(file_data, file, indent=4, ensure_ascii=False)
 
-    def get_vacancies_by_salary(self, salary):
+    def get_vacancies_by_salary(self, salary=None):
         file_data = self._open_file(self.__data_file)
 
         if not salary:
@@ -66,7 +66,7 @@ class JSONSaver(Saver):
 
         return result
 
-    def delete_vacancy(self, vacancy):
+    def delete_vacancy(self, vacancy=None):
         file_data = self._open_file(self.__data_file)
 
         if not vacancy:
