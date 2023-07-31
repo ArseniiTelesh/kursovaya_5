@@ -10,6 +10,7 @@ packages = [{include = "kursovaya_4"}]
 python = "^3.10"
 requests = "^2.31.0"
 psycopg2 = "^2.9.6"
+dbmanager = "^0.1.3"
 
 
 [build-system]
